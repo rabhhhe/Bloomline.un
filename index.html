@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bloomline Luxury Apparel — Lines That Bloom. Discover refined silhouettes crafted with premium materials, designed for those who appreciate timeless style over passing trends." />
+  <meta name="keywords" content="luxury fashion, premium apparel, Bloomline, timeless style, minimalist fashion" />
+  <meta name="author" content="Bloomline Luxury Apparel" />
+  <meta property="og:title" content="Bloomline — Lines That Bloom" />
+  <meta property="og:description" content="Discover refined silhouettes crafted with premium materials." />
+  <meta property="og:type" content="website" />
+  <title>Bloomline — Lines That Bloom | Luxury Apparel</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       LOADING SCREEN
+  ============================================================ -->
+  <div class="loader" id="loader" role="progressbar" aria-label="Loading Bloomline">
+    <img class="loader-logo-img" src="assets/logo.png" alt="Bloomline" />
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+    <span class="loader-count" id="loader-count">0</span>
+    <span class="loader-tag">Lines That Bloom</span>
+  </div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav-logo">
+      <a href="#" aria-label="Bloomline Home">
+        <img src="assets/nav-logo.png" alt="Bloomline Luxury Apparel" />
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#collection" class="active">Collection</a></li>
+      <li><a href="#categories">Shop</a></li>
+      <li><a href="#editorial">Editorial</a></li>
+      <li><a href="#lookbook">Lookbook</a></li>
+      <li><a href="#newsletter">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-icon" aria-label="Search" id="nav-search-btn">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><line x1="16.8" y1="16.8" x2="22" y2="22"/></svg>
+      </button>
+      <button class="nav-icon" aria-label="Account" id="nav-login-btn">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <button class="nav-icon" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      <button class="nav-icon" aria-label="Cart, 2 items" style="position:relative">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-dot" aria-hidden="true"></span>
+      </button>
+      <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme" role="switch" aria-checked="false">
+        <div class="theme-thumb" aria-hidden="true"></div>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <a href="#collection" class="mob-link">Collection</a>
+    <a href="#categories" class="mob-link">Shop</a>
+    <a href="#editorial" class="mob-link">Editorial</a>
+    <a href="#lookbook" class="mob-link">Lookbook</a>
+    <a href="#newsletter" class="mob-link">Contact</a>
+  </div>
+
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
+  <main>
+
+    <!-- ======================================================
+         HERO — Modern Split Layout
+    ====================================================== -->
+    <section class="hero" id="hero" aria-label="Hero">
+
+      <!-- Left: Text Panel -->
+      <div class="hero-left">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-left-content">
+          <div class="hero-eyebrow" id="hero-eyebrow">
+            <div class="eyebrow-dot" aria-hidden="true"></div>
+            <span class="eyebrow-label">New Arrival — SS 2025</span>
+          </div>
+
+          <h1 class="hero-headline">
+            <span class="hero-headline-line">
+              <span class="hero-headline-inner" id="hl1">Where</span>
+            </span>
+            <span class="hero-headline-line">
+              <span class="hero-headline-inner" id="hl2">Elegance</span>
+            </span>
+            <span class="hero-headline-line">
+              <span class="hero-headline-inner" id="hl3"><em>Finds Its Line.</em></span>
+            </span>
+          </h1>
+
+          <p class="hero-sub" id="hero-sub">
+            Discover refined silhouettes crafted with premium materials,
+            designed for those who appreciate timeless style over passing trends.
+          </p>
+
+          <div class="hero-cta" id="hero-cta">
+            <a href="#collection" class="btn btn-primary" id="hero-btn-explore">Explore Collection</a>
+            <a href="#editorial" class="btn btn-hero-outline" id="hero-btn-story">Discover the Story</a>
+          </div>
+
+          <div class="hero-stats" id="hero-stats">
+            <div>
+              <div class="hero-stat-num">320+</div>
+              <div class="hero-stat-label">Pieces</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">18</div>
+              <div class="hero-stat-label">Countries</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">100%</div>
+              <div class="hero-stat-label">Premium</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Image Panel -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-img-wrap">
+          <img
+            id="hero-main-img"
+            src="assets/hero-user-3.jpg"
+            alt="Bloomline SS 2025 — model in minimalist trench coat"
+          />
+        </div>
+
+        <!-- Floating badge -->
+        <div class="hero-badge" id="hero-badge">
+          <span class="hero-badge-title">SS 2025</span>
+          <span class="hero-badge-sub">The Atelier Edit</span>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="hero-scroll" aria-hidden="true">
+          <span class="hero-scroll-label">Scroll</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         NEW COLLECTION
+    ====================================================== -->
+    <section class="collection" id="collection" aria-label="New Collection">
+      <div class="container">
+
+        <div class="section-row">
+          <div class="reveal">
+            <div class="s-eyebrow">
+              <div class="s-eyebrow-dot" aria-hidden="true"></div>
+              <span class="s-eyebrow-text">New Arrivals</span>
+            </div>
+            <h2 class="s-title">The SS 2025 <em>Collection</em></h2>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:.9rem; align-items:flex-end">
+            <a href="#" class="text-link reveal" aria-label="View all">View All <span class="text-link-line" aria-hidden="true"></span></a>
+            <div class="filter-tabs reveal">
+              <button class="filter-tab active" aria-pressed="true">All</button>
+              <button class="filter-tab">Women</button>
+              <button class="filter-tab">Men</button>
+              <button class="filter-tab">Accessories</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-grid stagger" role="list">
+
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="assets/product-blazer.jpg" alt="The Atelier Blazer" loading="lazy" />
+              <span class="product-badge">New</span>
+              <button class="product-wish" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              </button>
+              <button class="quick-add">Quick Add</button>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Tailoring</div>
+              <h3 class="product-name">The Atelier Blazer</h3>
+              <div class="product-price">$485</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="assets/product-dress.jpg" alt="Silk Drape Dress" loading="lazy" />
+              <button class="product-wish" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              </button>
+              <button class="quick-add">Quick Add</button>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Dresses</div>
+              <h3 class="product-name">Silk Drape Dress</h3>
+              <div class="product-price">$720</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="assets/product-trousers.jpg" alt="Palazzo Trousers" loading="lazy" />
+              <span class="product-badge">Best Seller</span>
+              <button class="product-wish" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              </button>
+              <button class="quick-add">Quick Add</button>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Bottoms</div>
+              <h3 class="product-name">Palazzo Trousers</h3>
+              <div class="product-price">
+                <span class="old">$380</span>
+                <span class="sale">$310</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="assets/product-turtleneck.jpg" alt="Cashmere Turtleneck" loading="lazy" />
+              <button class="product-wish" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              </button>
+              <button class="quick-add">Quick Add</button>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Knitwear</div>
+              <h3 class="product-name">Cashmere Rib Turtleneck</h3>
+              <div class="product-price">$560</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CATEGORIES — Bento Grid
+    ====================================================== -->
+    <section class="categories" id="categories" aria-label="Shop by Category">
+      <div class="container">
+        <div class="section-row">
+          <div class="reveal">
+            <div class="s-eyebrow">
+              <div class="s-eyebrow-dot" aria-hidden="true"></div>
+              <span class="s-eyebrow-text">Shop by Category</span>
+            </div>
+            <h2 class="s-title">Explore <em>Our World</em></h2>
+          </div>
+          <a href="#" class="text-link reveal">Browse All <span class="text-link-line" aria-hidden="true"></span></a>
+        </div>
+
+        <div class="cat-grid stagger">
+          <a href="#" class="cat-card reveal" aria-label="Shop Women">
+            <img src="assets/category-women-new.jpg" alt="Women's collection" loading="lazy" />
+            <div class="cat-overlay" aria-hidden="true"></div>
+            <div class="cat-content">
+              <div class="cat-label">Collection</div>
+              <h3 class="cat-name">Women</h3>
+              <div class="cat-cta" aria-hidden="true">
+                <span>Explore</span>
+                <div class="cat-cta-line"></div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="cat-card reveal" aria-label="Shop Men">
+            <img src="assets/category-men.jpg" alt="Men's collection" loading="lazy" />
+            <div class="cat-overlay" aria-hidden="true"></div>
+            <div class="cat-content">
+              <div class="cat-label">Collection</div>
+              <h3 class="cat-name">Men</h3>
+              <div class="cat-cta" aria-hidden="true">
+                <span>Explore</span>
+                <div class="cat-cta-line"></div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="cat-card reveal" aria-label="Shop Accessories">
+            <img src="assets/category-accessories.jpg" alt="Accessories" loading="lazy" />
+            <div class="cat-overlay" aria-hidden="true"></div>
+            <div class="cat-content">
+              <div class="cat-label">Collection</div>
+              <h3 class="cat-name">Accessories</h3>
+              <div class="cat-cta" aria-hidden="true">
+                <span>Explore</span>
+                <div class="cat-cta-line"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         EDITORIAL STORY
+    ====================================================== -->
+    <section class="editorial" id="editorial" aria-label="Editorial Story">
+      <div class="editorial-wrap">
+        <div class="editorial-img reveal-l">
+          <img src="assets/editorial.jpg" alt="Bloomline editorial — timeless elegance" loading="lazy" />
+        </div>
+        <div class="editorial-body reveal-r">
+          <div class="big-quote" aria-hidden="true">"</div>
+          <blockquote class="editorial-quote">
+            Elegance is not about being noticed — it is about being remembered.
+          </blockquote>
+          <p class="editorial-text">
+            At Bloomline, we believe that true luxury lies not in excess, but in restraint.
+            Each piece is a dialogue between fabric and form — a conversation that speaks
+            softly but stays with you long after.<br /><br />
+            Our SS 2025 editorial explores the intersection of architectural minimalism
+            and organic silhouette, where clean lines bloom into something quietly extraordinary.
+          </p>
+          <div class="editorial-meta">
+            <div>
+              <div class="editorial-author">The Bloomline Story</div>
+              <div class="editorial-season">Spring / Summer 2025</div>
+            </div>
+          </div>
+          <a href="#" class="text-link" style="margin-top:.5rem">Read Full Story <span class="text-link-line" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         BEST SELLERS
+    ====================================================== -->
+    <section class="bestsellers" id="bestsellers" aria-label="Best Sellers">
+      <div class="container">
+        <div class="section-row">
+          <div class="reveal">
+            <div class="s-eyebrow">
+              <div class="s-eyebrow-dot" aria-hidden="true"></div>
+              <span class="s-eyebrow-text">Most Loved</span>
+            </div>
+            <h2 class="s-title">Best <em>Sellers</em></h2>
+          </div>
+          <a href="#" class="text-link reveal">Shop All <span class="text-link-line" aria-hidden="true"></span></a>
+        </div>
+
+        <div class="product-grid stagger" role="list">
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="assets/bestseller-trench.jpg" alt="The Atelier Trench Coat" loading="lazy" />
+              <span class="product-badge">Best Seller</span>
+              <button class="product-wish" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              </button>
+              <button class="quick-add">Quick Add</button>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Outerwear</div>
+              <h3 class="product-name">The Atelier Trench Coat</h3>
+              <div class="product-price">$890</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="assets/bestseller-sweater.jpg" alt="Cashmere Crewneck Sweater" loading="lazy" />
+              <button class="product-wish" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              </button>
+              <button class="quick-add">Quick Add</button>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Knitwear</div>
+              <h3 class="product-name">Cashmere Crewneck Sweater</h3>
+              <div class="product-price">$420</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="assets/bestseller-skirt.jpg" alt="Pleated Silk Midi Skirt" loading="lazy" />
+              <span class="product-badge">Popular</span>
+              <button class="product-wish" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              </button>
+              <button class="quick-add">Quick Add</button>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Skirts</div>
+              <h3 class="product-name">Pleated Silk Midi Skirt</h3>
+              <div class="product-price">$360</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" role="listitem">
+            <div class="product-img-wrap">
+              <img src="assets/bestseller-coat.jpg" alt="Wool Tailored Coat" loading="lazy" />
+              <button class="product-wish" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+              </button>
+              <button class="quick-add">Quick Add</button>
+            </div>
+            <div class="product-info">
+              <div class="product-cat">Outerwear</div>
+              <h3 class="product-name">Wool Tailored Coat</h3>
+              <div class="product-price">
+                <span class="old">$1,100</span>
+                <span class="sale">$950</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         LOOKBOOK
+    ====================================================== -->
+    <section class="lookbook" id="lookbook" aria-label="Lookbook SS 2025">
+      <div class="container">
+        <div class="section-row">
+          <div class="reveal">
+            <div class="s-eyebrow">
+              <div class="s-eyebrow-dot" aria-hidden="true"></div>
+              <span class="s-eyebrow-text">SS 2025</span>
+            </div>
+            <h2 class="s-title">The <em>Lookbook</em></h2>
+          </div>
+          <a href="#" class="btn btn-ghost reveal" id="lookbook-btn">View Full Lookbook</a>
+        </div>
+
+        <div class="lookbook-grid">
+          <div class="lb-item reveal-l">
+            <img src="assets/lookbook-1.jpg" alt="Look 01" loading="lazy" />
+            <div class="lb-overlay" aria-hidden="true">
+              <span class="lb-num">01</span>
+            </div>
+          </div>
+          <div class="lb-item reveal-r">
+            <img src="assets/lookbook-2.jpg" alt="Look 02" loading="lazy" />
+            <div class="lb-overlay" aria-hidden="true">
+              <span class="lb-num">02</span>
+            </div>
+          </div>
+          <div class="lb-item reveal-r" style="transition-delay:.18s">
+            <img src="assets/lookbook-3.jpg" alt="Look 03" loading="lazy" />
+            <div class="lb-overlay" aria-hidden="true">
+              <span class="lb-num">03</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         NEWSLETTER
+    ====================================================== -->
+    <section class="newsletter" id="newsletter" aria-label="Newsletter">
+      <div class="container">
+        <div class="nl-inner reveal">
+          <div class="nl-eyebrow">
+            <div class="nl-eyebrow-line" aria-hidden="true"></div>
+            <span>Stay in the Know</span>
+            <div class="nl-eyebrow-line" aria-hidden="true"></div>
+          </div>
+
+          <h2 class="nl-title">
+            Join the World of <em>Bloomline</em>
+          </h2>
+
+          <p class="nl-sub">
+            Be the first to discover new arrivals, exclusive offers,
+            and the stories behind each collection.
+          </p>
+
+          <form class="nl-form" id="nl-form" novalidate>
+            <div class="nl-input-wrap">
+              <input
+                class="nl-input" id="nl-email" type="email" name="email"
+                placeholder="Your email address"
+                autocomplete="email" aria-label="Email address" aria-required="true"
+              />
+              <div class="nl-focus-bar" aria-hidden="true"></div>
+            </div>
+            <button type="submit" class="nl-btn" id="nl-submit">Subscribe</button>
+          </form>
+
+          <p class="nl-note">No spam, ever. Unsubscribe at any time.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3 class="footer-brand-title">Bloomline</h3>
+          <p class="footer-tagline">Lines that bloom — where timeless elegance meets refined craft.</p>
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="footer-social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.22-5.17 1.22-5.17s-.31-.62-.31-1.54c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.24-.86 3.48-.24 1.04.51 1.88 1.53 1.88 1.83 0 3.24-1.93 3.24-4.72 0-2.47-1.77-4.2-4.31-4.2-2.93 0-4.66 2.2-4.66 4.47 0 .89.34 1.84.76 2.36a.3.3 0 0 1 .07.29c-.08.32-.25 1.04-.28 1.19-.04.19-.14.23-.32.14-1.25-.58-2.03-2.42-2.03-3.89 0-3.16 2.3-6.07 6.63-6.07 3.48 0 6.19 2.48 6.19 5.8 0 3.46-2.18 6.24-5.2 6.24-1.02 0-1.97-.53-2.3-1.15l-.62 2.33c-.23.87-.84 1.96-1.25 2.62.94.29 1.94.45 2.97.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="X">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Sale</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Editorial</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Lookbook</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Sizing Guide</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Care Instructions</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Bloomline Luxury Apparel. All rights reserved.</p>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       LOGIN / SIGN-UP MODAL OVERLAY
+  ============================================================ -->
+  <div class="auth-overlay" id="auth-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="auth-modal">
+      <button class="auth-close-btn" id="auth-close-btn" aria-label="Close modal">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" aria-selected="true">Sign In</button>
+        <button class="auth-tab" id="tab-register" aria-selected="false">Create Account</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <form class="auth-form active" id="form-login" novalidate>
+        <h2 class="auth-title">Welcome Back</h2>
+        <p class="auth-subtitle">Enter your credentials to access your atelier profile.</p>
+
+        <div class="auth-field">
+          <input type="email" id="login-email" required placeholder=" " autocomplete="email">
+          <label for="login-email">Email Address</label>
+          <div class="auth-field-bar"></div>
+        </div>
+
+        <div class="auth-field">
+          <input type="password" id="login-password" required placeholder=" " autocomplete="current-password">
+          <label for="login-password">Password</label>
+          <div class="auth-field-bar"></div>
+        </div>
+
+        <div class="auth-actions">
+          <label class="auth-remember">
+            <input type="checkbox" id="login-remember">
+            <span class="checkbox-box"></span>
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="auth-forgot">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-submit-btn">
+          <span>Sign In</span>
+        </button>
+      </form>
+
+      <!-- Create Account Form -->
+      <form class="auth-form" id="form-register" novalidate>
+        <h2 class="auth-title">Join Bloomline</h2>
+        <p class="auth-subtitle">Create an account to unlock the full atelier experience.</p>
+
+        <div class="auth-field">
+          <input type="text" id="register-name" required placeholder=" " autocomplete="name">
+          <label for="register-name">Full Name</label>
+          <div class="auth-field-bar"></div>
+        </div>
+
+        <div class="auth-field">
+          <input type="email" id="register-email" required placeholder=" " autocomplete="email">
+          <label for="register-email">Email Address</label>
+          <div class="auth-field-bar"></div>
+        </div>
+
+        <div class="auth-field">
+          <input type="password" id="register-password" required placeholder=" ">
+          <label for="register-password">Password</label>
+          <div class="auth-field-bar"></div>
+        </div>
+
+        <div class="auth-actions">
+          <label class="auth-remember">
+            <input type="checkbox" id="register-terms" required>
+            <span class="checkbox-box"></span>
+            <span>I accept the Terms & Conditions</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-submit-btn">
+          <span>Create Account</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
