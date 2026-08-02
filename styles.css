@@ -619,16 +619,22 @@ input {
 .hero-right {
   position: relative;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
 }
 
 .hero-img-wrap {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-img-wrap img {
   width: 100%;
   height: 100%;
+  min-height: 100%;
   object-fit: cover;
   object-position: center top;
   transform: scale(1.05);
@@ -643,15 +649,16 @@ input {
 /* Floating badge on image */
 .hero-badge {
   position: absolute;
-  bottom: 2.5rem;
-  left: 2rem;
-  z-index: 3;
+  bottom: 1.8rem;
+  left: 1.8rem;
+  z-index: 5;
   background: rgba(var(--accent-rgb), .95);
   color: #0A0A0A;
-  padding: .8rem 1.3rem;
+  padding: .85rem 1.35rem;
   display: flex;
   flex-direction: column;
   gap: .15rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   opacity: 0;
   transform: translateY(10px);
   transition: opacity .8s 1.4s ease, transform .8s 1.4s ease;
@@ -671,7 +678,7 @@ input {
 
 .hero-badge-sub {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 500;
 }
 
@@ -2081,8 +2088,8 @@ section {
   }
 
   .hero-right {
-    height: 55vw;
-    min-height: 380px;
+    height: 65vw;
+    min-height: 460px;
   }
 
   .hero-badge {
@@ -2153,8 +2160,13 @@ section {
   }
 
   .hero-right {
-    height: 70vw;
-    min-height: 320px;
+    height: 80vw;
+    min-height: 420px;
+  }
+
+  .hero-badge {
+    bottom: 1.2rem;
+    left: 1.2rem;
   }
 
   .hero-scroll {
