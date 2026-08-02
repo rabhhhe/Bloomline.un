@@ -2239,3 +2239,120 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   IMAGE PROTECTION, OVERLAYS & CUSTOM TOAST NOTIFICATION
+   ============================================================ */
+
+/* Disable text/image selection and drag behavior on all images & containers */
+img,
+.img-overlay,
+.hero-img-wrap,
+.product-img-wrap,
+.cat-card,
+.editorial-img,
+.lb-item,
+.loader-logo-wrap {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Base image pointer events */
+img {
+  pointer-events: auto;
+}
+
+/* Containers relative positioning */
+.hero-img-wrap,
+.product-img-wrap,
+.cat-card,
+.editorial-img,
+.lb-item,
+.loader-logo-wrap {
+  position: relative;
+}
+
+/* Transparent Overlay for image protection layer */
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: transparent;
+  pointer-events: auto;
+  cursor: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Ensure interactive elements sit above protection overlay */
+.product-badge,
+.product-wish,
+.quick-add,
+.cat-content,
+.cat-overlay,
+.lb-overlay,
+.hero-badge,
+.hero-scroll {
+  z-index: 5;
+}
+
+/* Custom Luxury Toast Notification */
+.img-toast {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translate(-50%, 20px) scale(0.96);
+  z-index: 99999;
+  background: rgba(17, 17, 17, 0.94);
+  border: 1px solid rgba(var(--accent-rgb), 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 15px rgba(var(--accent-rgb), 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.85rem 1.6rem;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .img-toast {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(200, 169, 106, 0.55);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 0 15px rgba(200, 169, 106, 0.2);
+}
+
+.img-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.img-toast-icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.img-toast-text {
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}

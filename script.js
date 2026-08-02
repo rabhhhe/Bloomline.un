@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWishlistBtns();
   initNewsletterForm();
   initAuthModal();
+  initImageProtection();
 });
 
 /* ============================================================
@@ -740,3 +741,89 @@ if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
     if (el) { el.style.transition = 'none'; el.classList.add('show'); }
   });
 }
+
+/* ============================================================
+   IMAGE PROTECTION & CUSTOM TOAST NOTIFICATION MODULE
+   Comprehensive 4-Layer Lightweight Image Defense System:
+   Layer 1: Context Menu Interception & Toast Alert
+   Layer 2: Drag-and-Drop Desktop Drag Prevention
+   Layer 3: Attribute Enforcement (draggable="false" & CSS Selection Blocking)
+   Layer 4: Non-Intrusive Luxury Toast UI Management
+   ============================================================ */
+function initImageProtection() {
+  // Layer 4: Initialize or retrieve the custom Bloomline Toast element
+  let toast = document.getElementById('img-protection-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'img-protection-toast';
+    toast.className = 'img-toast';
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = `
+      <svg class="img-toast-icon" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      <span class="img-toast-text">Images are protected and intended for viewing only.</span>
+    `;
+    document.body.appendChild(toast);
+  }
+
+  let toastTimeout = null;
+
+  /**
+   * Triggers the luxury Toast notification at bottom-center.
+   * Auto-fades out after 2.5 seconds (2500ms).
+   */
+  function showToast() {
+    if (!toast) return;
+    toast.classList.add('show');
+    
+    // Clear any previous active timer to handle rapid right-clicks smoothly
+    if (toastTimeout) {
+      clearTimeout(toastTimeout);
+    }
+    
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2500);
+  }
+
+  // Define selectors for all image components across hero, collection, editorial, lookbook, logos
+  const protectedSelector = 'img, .img-overlay, .hero-img-wrap, .product-img-wrap, .cat-card, .editorial-img, .lb-item, .loader-logo-wrap, .nav-logo img';
+
+  // Layer 1: Intercept Right-Click (contextmenu) on all protected image components & overlays
+  document.addEventListener('contextmenu', (e) => {
+    const target = e.target;
+    if (target.closest(protectedSelector)) {
+      e.preventDefault();
+      showToast();
+      return false;
+    }
+  }, true);
+
+  // Layer 2: Intercept Dragging (dragstart) to prevent image dragging to desktop or extra tabs
+  document.addEventListener('dragstart', (e) => {
+    const target = e.target;
+    if (target.tagName === 'IMG' || target.closest(protectedSelector)) {
+      e.preventDefault();
+      return false;
+    }
+  }, true);
+
+  // Layer 3: Enforce HTML5 draggable="false" attribute on all current images
+  const enforceAttributes = () => {
+    document.querySelectorAll('img').forEach(img => {
+      if (img.getAttribute('draggable') !== 'false') {
+        img.setAttribute('draggable', 'false');
+      }
+    });
+  };
+
+  enforceAttributes();
+
+  // MutationObserver to automatically protect dynamically inserted images
+  const observer = new MutationObserver(() => enforceAttributes());
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
