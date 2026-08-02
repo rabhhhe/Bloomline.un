@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initTheme() {
   const btn  = document.getElementById('theme-toggle');
   const root = document.documentElement;
-  const saved = localStorage.getItem('bloomline-theme') || 'light';
+  const saved = localStorage.getItem('bloomline-theme') || 'dark';
   applyTheme(saved);
 
   btn.addEventListener('click', () => {

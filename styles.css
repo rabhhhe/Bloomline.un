@@ -10,27 +10,6 @@
    ============================================================ */
 
 :root,
-[data-theme="light"] {
-  --bg: #F7F6F3;
-  --surface: #FFFFFF;
-  --text-primary: #1A1A1A;
-  --text-secondary: #6F6F6F;
-  --accent: #C8A96A;
-  --accent-rgb: 200, 169, 106;
-  --accent-light: rgba(200, 169, 106, 0.10);
-  --accent-mid: rgba(200, 169, 106, 0.28);
-  --border: #EAE5DE;
-  --border-rgb: 234, 229, 222;
-  --nav-bg: rgba(247, 246, 243, 0.00);
-  --nav-bg-scroll: rgba(247, 246, 243, 0.95);
-  --card-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
-  --loader-bg: #F7F6F3;
-  --logo-filter: none;
-  --logo-blend: multiply;
-  --footer-bg: #111111;
-}
-
 [data-theme="dark"] {
   --bg: #0A0A0A;
   --surface: #111111;
@@ -50,6 +29,27 @@
   --logo-filter: invert(1);
   --logo-blend: normal;
   --footer-bg: #050505;
+}
+
+[data-theme="light"] {
+  --bg: #F7F6F3;
+  --surface: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6F6F6F;
+  --accent: #C8A96A;
+  --accent-rgb: 200, 169, 106;
+  --accent-light: rgba(200, 169, 106, 0.10);
+  --accent-mid: rgba(200, 169, 106, 0.28);
+  --border: #EAE5DE;
+  --border-rgb: 234, 229, 222;
+  --nav-bg: rgba(247, 246, 243, 0.00);
+  --nav-bg-scroll: rgba(247, 246, 243, 0.95);
+  --card-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --loader-bg: #F7F6F3;
+  --logo-filter: none;
+  --logo-blend: multiply;
+  --footer-bg: #111111;
 }
 
 /* ============================================================
